@@ -1,7 +1,7 @@
 # FluentAPI
 
 ## Basics
-<pre>
+```
 public class PlutoContext : DbContext
 {
   protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -11,7 +11,7 @@ public class PlutoContext : DbContext
           .IsRequired();
   }
 }
-</pre>
+```
 
 ## Tables
 <pre>
