@@ -33,8 +33,9 @@ Entity<OrderItem>.HasKey(t => new
               t.OrderId,
               t.OrderId
             });
+</pre>
 
-##Columns
+## Columns
 <pre>
 Entity<Course>.Property(t => t.Name)
         .HasColumnName(“sName”)
