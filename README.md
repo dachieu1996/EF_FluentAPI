@@ -14,46 +14,46 @@ public class PlutoContext : DbContext
 ```
 
 ## Tables
-<pre>
+```csharp
 Entity<Course>.ToTable(“tbl_Course”, “catalog”);
-</pre>
+```
 
 ## Primary Keys
-<pre>
+```csharp
 Entity<Book>.HasKey(t => t.Isbn);
 
 Entity<Book>.Property(t => t.Isbn)
         .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-</pre>
+```
 
 ## Composite Primary Keys
-<pre>
+```csharp
 Entity<OrderItem>.HasKey(t => new
             {
               t.OrderId,
               t.OrderId
             });
-</pre>
+```
 
 ## Columns
-<pre>
+```csharp
 Entity<Course>.Property(t => t.Name)
         .HasColumnName(“sName”)
         .HasColumnType(“varchar”)
         .HasColumnOrder(2)
         .IsRequired()
         .HasMaxLength(255);
-</pre>
+```
 
 ## One-to-many Relationship
-<pre>
+```csharp
 Entity<Author>.HasMany(a => a.Courses)
         .WithRequired(c => c.Author)
         .HasForeignKey(c => c.AuthorId);
-</pre>
+```
         
 ## Many-to-many Relationship
-<pre>
+```csharp
 Entity<Course> .HasMany(c => c.Tags)
         .WithMany(t => t.Courses)
         .Map(m => {
@@ -61,18 +61,18 @@ Entity<Course> .HasMany(c => c.Tags)
               m.MapLeftKey(“CourseId”);
               m.MapRightKey(“TagId”);
         });
-</pre>
+```
 
 ## One-to-zero/one Relationship
-<pre>
+```csharp
 Entity<Course>.HasOptional(c => c.Caption)
         .WithRequired(c => c.Course);
-</pre>
+```
 
 ## One-to-one Relationship
-<pre>
+```csharp
 Entity<Course>.HasRequired(c => c.Cover)
         .WithRequiredPrincipal(c => c.Course);
 Entity<Cover>.HasRequired(c => c.Course)
         .WithRequiredDependent(c => c.Cover);
-</pre>
+```
