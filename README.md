@@ -1,7 +1,7 @@
 # FluentAPI
 
 ## Basics
-```
+```csharp
 public class PlutoContext : DbContext
 {
   protected override void OnModelCreating(DbModelBuilder modelBuilder)
